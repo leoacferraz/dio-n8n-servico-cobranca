@@ -1,0 +1,16 @@
+services:
+  db-postgres:
+    image: postgres:16
+    container_name: cobranca-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cobranca_cliente
+      POSTGRES_USER: cobranca_user
+      POSTGRES_PASSWORD: cobranca_senha
+    ports:
+      - "5433:5432"
+    volumes:
+      - cobranca_pg_data:/var/lib/postgresql/data
+
+volumes:
+  cobranca_pg_data:
